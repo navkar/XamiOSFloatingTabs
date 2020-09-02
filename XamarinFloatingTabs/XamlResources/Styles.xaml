@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+                    x:Class="XamarinFloatingTabs.XamlResources.Styles">
+    <Color x:Key="Dark">#262d3a</Color>
+    
+    <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+        <On Platform="iOS" Value="Material Design Icons" />
+        <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+    </OnPlatform>
+    
+    <OnPlatform x:Key="MontserratMediumFontFamily" x:TypeArguments="x:String">
+        <On Platform="iOS" Value="Montserrat-Medium" />
+        <On Platform="Android" Value="Montserrat-Medium.ttf#Montserrat Medium" />
+    </OnPlatform>
+    
+    <OnPlatform x:Key="MontserratSemiBoldFontFamily" x:TypeArguments="x:String">
+        <On Platform="iOS" Value="Montserrat-SemiBold" />
+        <On Platform="Android" Value="Montserrat-SemiBold.ttf#Montserrat SemiVet" />
+    </OnPlatform>
+    
+    <Style x:Key="TransparentButton" TargetType="Button">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+    </Style>
+
+    <Style x:Key="MaterialFontButton" TargetType="Button" BasedOn="{StaticResource TransparentButton}">
+        <Setter Property="FontFamily" Value="{StaticResource MaterialFontFamily}" />
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="WidthRequest" Value="50" />
+        <Setter Property="HeightRequest" Value="50" />
+    </Style>
+    
+    <Style x:Key="CategoryLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratSemiBoldFontFamily}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+    
+    <Style x:Key="CategoryLinkLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratSemiBoldFontFamily}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+    
+    <Style x:Key="StoryCategoryLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />
+    </Style>
+    
+    <Style x:Key="StoryTitleLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />
+    </Style>
+
+    <ControlTemplate x:Key="PageWithGradient">
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand" >
+            <magic:GradientView.GradientSource>
+                <magic:CssGradientSource>
+                    <x:String>
+                        <![CDATA[
+                                radial-gradient(circle at top right, rgb(105, 135, 213) 0%, rgb(105, 135, 213) 14.286%,rgb(94, 121, 206) 14.286%, rgb(94, 121, 206) 28.572%,rgb(82, 107, 199) 28.572%, rgb(82, 107, 199) 42.858%,rgb(71, 94, 193) 42.858%, rgb(71, 94, 193) 57.144%,rgb(59, 80, 186) 57.144%, rgb(59, 80, 186) 71.43%,rgb(48, 66, 179) 71.43%, rgb(48, 66, 179) 85.716%,rgb(36, 52, 172) 85.716%, rgb(36, 52, 172) 100.002%)
+                          ]]>
+                    </x:String>
+                </magic:CssGradientSource>
+            </magic:GradientView.GradientSource>
+        </magic:GradientView>
+        <ContentPresenter />
+    </Grid>
+</ControlTemplate>
+
+</ResourceDictionary>
